@@ -6,13 +6,12 @@ d-notes is a personal decentralized notes app that empowers you to securely stor
 
 - **Decentralized storage:** No single database, your data is distributed across a peer-to-peer network.
 - **Secure encryption:** Your data is encrypted using your passkey for enhanced security.
-- **Easy to use:** No installation required, simply open `index.html` in any browser to start using locally. Alternatively, you can access the hosted version at [https://d-notes.com](https://d-notes.com).
 
 ## Getting Started
 
 1. Clone the repository or download the files.
 2. Open `index.html` in any modern browser to use the app locally.
-3. Alternatively, access the hosted version at [https://d-notes.com](https://d-notes.com).
+3. Alternatively, access the hosted version [here](https://anubhavitis.github.io/d-notes/).
 
 ## Technologies
 
