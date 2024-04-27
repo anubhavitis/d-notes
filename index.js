@@ -3,16 +3,26 @@ const gun = Gun({
 });
 const user = gun.user().recall({ sessionStorage: true });
 
-document.getElementById('up').addEventListener('click', function (e) {
+let signup = document.getElementById('sign-up');
+let signin = document.getElementById('sign-in');
+let said = document.getElementById('said');
+let signout = document.getElementById('sign-out');
+
+signout.addEventListener('click', function (e) {
+    sessionStorage.clear();
+    window.location.reload();
+});
+
+signup.addEventListener('click', function (e) {
     user.create(document.getElementById('alias').value, document.getElementById('pass').value);
 });
 
-document.getElementById('sign').addEventListener('submit', function (e) {
+signin.addEventListener('submit', function (e) {
     e.preventDefault();
     user.auth(document.getElementById('alias').value, document.getElementById('pass').value);
 });
 
-document.getElementById('said').addEventListener('submit', function (e) {
+said.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!user.is) { return; }
     user.get('said').set(document.getElementById('say').value);
@@ -38,6 +48,6 @@ function UI(say, id) {
 }
 
 gun.on('auth', function () {
-    document.getElementById('sign').style.display = 'none';
+    signin.style.display = 'none';
     user.get('said').map().once(UI);
 });
