@@ -1,54 +1,53 @@
-<html>
-  <body>
-    <h1>Todo</h1>
+<html lang="en">
 
-    <form id="sign">
-      <input id="alias" placeholder="username">
-      <input id="pass" type="password" placeholder="passphrase">
-      <input id="in" type="submit" value="sign in">
-      <input id="up" type="button" value="sign up">
+<head>
+  <title> d-notes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex flex-col bg-blue-100 items-center justify-center h-full">
+  <div class="flex flex-col items-center justify-center"></div>
+  <h1 class="text-4xl font-bold mb-8">D-Notes</h1>
+  </div>
+
+  <div>
+    <form id="sign" class="flex flex-col gap-5 items-center justify-center">
+      <div class="flex flex-col gap-1">
+        <input id="alias"
+          class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          placeholder="username">
+        <input id="pass"
+          class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          type="password" placeholder="passphrase">
+      </div>
+      <div>
+        <input id="in" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 py-1 mx-2 rounded"
+          value="sign in">
+        <input id="up" type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 py-1 mx-2 rounded"
+          value="sign up">
+      </div>
     </form>
+  </div>
 
-    <ul></ul>
+  <ul class="flex flex-col gap-2 items-center justify-center my-2">
+  </ul>
 
-    <form id="said">
-        <input id="say">
-        <input id="speak" type="submit" value="speak">
-    </form>
+  <form id="said">
+    <div class="flex flex-col gap-1">
+      <input id="say"
+        class="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+      <input id="speak" class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 py-1 mx-2 rounded" type="submit"
+        value="speak">
+    </div>
+  </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
-    <!-- script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script -->
-    <script>
-    var gun = Gun(['http://localhost:8765/gun', 'https://gun-manhattan.herokuapp.com/gun']);
-    var user = gun.user();
+  <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gun/sea.js"></script>
+  <!-- script src="https://cdn.jsdelivr.net/npm/gun/lib/webrtc.js"></script -->
+  <script src="index.js"></script>
+</body>
 
-    $('#up').on('click', function(e){
-      user.create($('#alias').val(), $('#pass').val());
-    });
-
-    $('#sign').on('submit', function(e){
-      e.preventDefault();
-      user.auth($('#alias').val(), $('#pass').val());
-    });
-
-    $('#said').on('submit', function(e){
-      e.preventDefault();
-      if(!user.is){ return }
-      user.get('said').set($('#say').val());
-      $('#say').val("");
-    });
-
-    function UI(say, id){
-      var li = $('#' + id).get(0) || $('<li>').attr('id', id).appendTo('ul');
-      $(li).text(say);
-    };
-
-    gun.on('auth', function(){
-      $('#sign').hide();
-      user.get('said').map().once(UI);
-    });
-    </script>
-  </body>
 </html>
