@@ -1,8 +1,8 @@
 "use client";
 
-function Notes({ gun, isAuthenticated }) {
+function Notes({ gun }) {
 
-    let resp = (
+    return (
         <div id="notes-div">
             <form id="notes-form">
                 <div className="flex gap-1">
@@ -15,12 +15,6 @@ function Notes({ gun, isAuthenticated }) {
             <ul className="flex flex-col gap-2 items-center justify-center p-4 my-2"></ul>
         </div>
     )
-
-    if (!isAuthenticated) {
-        resp = (<div></div>)
-    }
-
-    return resp
 }
 
 export default Notes

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-function Login({ user, isAuthenticated }) {
+function Login({ user }) {
 
 
     const [username, setUsername] = useState('');
@@ -24,10 +24,8 @@ function Login({ user, isAuthenticated }) {
         user.create(username, password);
     };
 
-
-    let resp = (<div> </div>);
-    if (!isAuthenticated) {
-        resp = (<div>
+    return (
+        <div>
             <form className='flex flex-col gap-5 items-center justify-center'>
                 <input
                     value={username} onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Username"
@@ -48,10 +46,9 @@ function Login({ user, isAuthenticated }) {
                     >Sign up</button>
                 </div>
             </form >
-        </div >);
-    }
+        </div >
+    )
 
-    return resp;
 }
 
 export default Login
