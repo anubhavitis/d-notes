@@ -26,7 +26,7 @@ export default function Home() {
     <div className="flex justify-center items-center h-screen flex-col">
       <h1 className="text-4xl font-bold mb-8">D-Notes</h1>
       <div>
-        {isAuthenticated ? <Notes gun={gun} /> : <Login user={user} gun={gun} />}
+        {isAuthenticated ? <Notes user={user} /> : <Login user={user} />}
       </div>
     </div>
   );
