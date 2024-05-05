@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from 'next/image';
-import editSvg from '../../public/edit.svg';
 
 import { TrashIcon, Pencil2Icon } from '@radix-ui/react-icons'
 
