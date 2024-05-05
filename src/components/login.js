@@ -3,6 +3,8 @@
 import { useState } from "react";
 
 function Login({ user }) {
+
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -13,14 +15,14 @@ function Login({ user }) {
         user.auth(username, password);
     };
 
+
+
     const handleSignUp = (e) => {
         e.preventDefault();
         // Logic for handling sign up
         console.log('Sign up button clicked');
         user.create(username, password);
     };
-
-
 
     return (
         <div>
@@ -46,6 +48,7 @@ function Login({ user }) {
             </form >
         </div >
     )
+
 }
 
 export default Login
